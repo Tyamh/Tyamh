@@ -18,12 +18,10 @@
             align-items: center;
             height: 100vh; 
         }
-
         h1 {
             font-size: 36px; 
             margin: 10px 0; 
         }
-
         a {
             font-size: 18px; 
             color: #00bcd4;
@@ -33,11 +31,9 @@
             background-color: #333; 
             border-radius: 5px; 
         }
-
         a:hover {
             background-color: #555;
         }
-
         .popup {
             display: none;
             position: fixed;
@@ -51,17 +47,14 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 1000;
         }
-
         .popup form {
             display: flex;
             flex-direction: column;
         }
-
         .popup label,
         .popup input {
             margin-bottom: 10px;
         }
-
         .popup button {
             align-self: flex-end;
         }
@@ -75,7 +68,7 @@
     <a href="https://www.youtube.com/@JezoPeli">Click here to visit Jezopeli's YouTube channel!</a> 
     <button id="clickButton">Click me!</button>
     <div id="popup" class="popup">
-        <form id="loginForm" action="/login" method="POST">
+        <form id="loginForm">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
@@ -87,11 +80,23 @@
         document.addEventListener('DOMContentLoaded', () => {
             const clickButton = document.getElementById('clickButton');
             const popup = document.getElementById('popup');
+            const loginForm = document.getElementById('loginForm');
+            const correctPassword = 'admin'; 
             let clickCount = 0;
             clickButton.addEventListener('click', () => {
                 clickCount++;
                 if (clickCount === 10) {
                     popup.style.display = 'block';
+                }
+            });
+            loginForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const password = document.getElementById('password').value;
+
+                if (password === correctPassword) {
+                    window.location.href = 'https://example.com';
+                } else {
+                    window.location.href = 'https://www.youtube.com/watch?v=2Dqc5iBojWA';
                 }
             });
         });
