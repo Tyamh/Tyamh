@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JustPlainOldGarbage</title>
     <style>
-        /* Body Styling */
         body {
             background-color: rgb(34, 38, 40); 
             font-family: Arial, sans-serif; 
@@ -73,12 +72,10 @@
     <h1>Why'd you choose to come here?</h1>
     <h1>I do understand your pain.</h1>
     <h1>Check out</h1>
-    <a href="https://www.youtube.com/@JezoPeli">Click here to visit Jezopeli's YouTube channel!</a>
-    
+    <a href="https://www.youtube.com/@JezoPeli">Click here to visit Jezopeli's YouTube channel!</a> 
     <button id="clickButton">Click me!</button>
-
     <div id="popup" class="popup">
-        <form id="loginForm">
+        <form id="loginForm" action="/login" method="POST">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
@@ -86,28 +83,16 @@
             <button type="submit">Login</button>
         </form>
     </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const clickButton = document.getElementById('clickButton');
             const popup = document.getElementById('popup');
-            const loginForm = document.getElementById('loginForm');
             let clickCount = 0;
-
             clickButton.addEventListener('click', () => {
                 clickCount++;
-                if (clickCount === 5) {
+                if (clickCount === 10) {
                     popup.style.display = 'block';
                 }
-            });
-
-            loginForm.addEventListener('submit', (event) => {
-                event.preventDefault();
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
-
-
-                window.location.href = 'https://example.com';
             });
         });
     </script>
