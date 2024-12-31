@@ -80,16 +80,18 @@
         document.addEventListener('DOMContentLoaded', () => {
             const clickButton = document.getElementById('clickButton');
             const popup = document.getElementById('popup');
-            const loaginForm = document.getElementById('loaginForm');
+            const loginForm = document.getElementById('loginForm');
             const correctPassword = 'admin'; // This is NOT a real password, if someone is manually watching over this code, congratulations! This is a part of an ARG, might just want to share it on reddit. - Tyamh the real one //
             let clickCount = 0;
+            
             clickButton.addEventListener('click', () => {
                 clickCount++;
                 if (clickCount === 10) {
                     popup.style.display = 'block';
                 }
             });
-            loaginForm.addEventListener('submit', (event) => {
+
+            loginForm.addEventListener('submit', (event) => {
                 event.preventDefault();
                 const password = document.getElementById('password').value;
 
