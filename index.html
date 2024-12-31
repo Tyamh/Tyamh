@@ -25,7 +25,6 @@
             margin: 10px 0; 
         }
 
-    
         a {
             font-size: 18px; 
             color: #00bcd4;
@@ -39,6 +38,34 @@
         a:hover {
             background-color: #555;
         }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .popup form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popup label,
+        .popup input {
+            margin-bottom: 10px;
+        }
+
+        .popup button {
+            align-self: flex-end;
+        }
     </style>
 </head>
 <body>
@@ -47,5 +74,43 @@
     <h1>I do understand your pain.</h1>
     <h1>Check out</h1>
     <a href="https://www.youtube.com/@JezoPeli">Click here to visit Jezopeli's YouTube channel!</a>
+    
+    <button id="clickButton">Click me!</button>
+
+    <div id="popup" class="popup">
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const clickButton = document.getElementById('clickButton');
+            const popup = document.getElementById('popup');
+            const loginForm = document.getElementById('loginForm');
+            let clickCount = 0;
+
+            clickButton.addEventListener('click', () => {
+                clickCount++;
+                if (clickCount === 5) {
+                    popup.style.display = 'block';
+                }
+            });
+
+            loginForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                // Validate username and password if needed
+                // For example, redirect to another website
+                window.location.href = 'https://example.com';
+            });
+        });
+    </script>
 </body>
 </html>
